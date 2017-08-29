@@ -10,16 +10,100 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <header>
+      <h1>OndaSuave</h1>
+      <div class="sig">
+      <div class="dropdown">
+      <button class="dropbtn">signUp</button>
+      <div class="dropdown-content">
+        <form id="sign-up">
+          <input type="text" name="credentials[email]" value="" placeholder="email">
+          <input type="password" name="credentials[password]" value="" placeholder="password">
+          <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+          <input type="submit" name="submit" value="Sign up!" class="submit">
+      </form>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      </div>
+    </div>
+     <div class="dropdown">
+     <button class="dropbtn">Log In</button>
+     <div class="dropdown-content">
+       <form id="sign-in">
+           <input type="text" name="credentials[email]" value="" placeholder="email">
+           <input type="password" name="credentials[password]" value="" placeholder="password">
+           <input type="submit" name="submit" value="Sign in!" class="submit">
+       </form>
+     </div>
+   </div>
+
+   <div class="dropdown">
+ <button class="dropbtn">Settings</button>
+ <div class="dropdown-content">
+   <a href="#">Link 1</a>
+   <a href="#">Link 2</a>
+   <a href="#">Link 3</a>
+   <div class="dropdown">
+   <button class="dropbtn">changePassword</button>
+   <div class="dropdown-content">
+   <form id="change-password">
+       <input type="password" name="credentials[old]" value="" placeholder="Old Password">
+       <input type="password" name="credentials[new]" value="" placeholder="New Password">
+       <input type="submit" name="submit" value="Change Password" class="submit">
+   </form>
+ </div>
+</div>
+<form id="sign-out">
+    <input type="submit" name="submit" value="Sign out!" class="submit">
+</form>
+ </div>
+</div>
+
+     </div>
+   </header>
+    <div class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+
+        <li><a href="#news">News</a></li>
+
+        <li><a href="#contact">Contact</a></li>
+
+        <li><a href="#about">About us</a></li>
+      </ul>
+    </div>
+    <div class="introduction">
+    <h2>OndaSuave</h2>
+    <p class=onda> is a center for expecting and expanding families. <br>We offer education, advocacy,
+       and wellness services<br> during the childbearing years. Our commitment is to ALL families. <br> Our program costs are income based,
+      allowing mothers and families, <br>from all backgrounds and of all financial means, to access education,<br> care and support.</p>
+    </div>
+    <br>
+    <button id="makeappointment" class="makeapoitment" value="create_appointment">Make Appointment Now</button>
+    <br>
+    <button id="schedule" class="schedule" value="schedule">Schedule</button>
+    <br>
+    <h3>​Upcoming Classes & Events</h3>
+    <br>
+<p>Community Acupuncture & Massage -  Come join us for a low cost/no cost monthly gathering with <br>local therapists and sound healers.<br>
+  This cozy atmosphere will help sooth your senses and nourish your soul.  Starting Spring 2017.</p>
+
+<p>Date Night Massage Series #1-  Do you love massage and wish you could give and receive it more<br>
+  often with the ones you love?  Interwoven Care is offering a 3 week class series just for you!<br>
+  Participants will learn a variety of massage techniques and theory to fortify and nurture each<br>
+  other through the challenges and stress of our day to day lives.</p>
+
+​<p>Partner Massage & Acupressure for Birth - This workshop will provide expecting parents with tools<br>
+for coping in labor through the use of partner supported movement and touch.</p>
+<p> Learn which acupressure points can be helpful for calming nerves, relieving pain,<br>
+  and encouraging the baby to come down. Come learn the power of nurturing touch.</p>
+  <br>
+  <br>
+<footer>
+  <h6>CopyRight@2017 Design by Antonio Brito</h6>
+</footer>
+
     </body>
 </html>
