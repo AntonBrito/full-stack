@@ -6,14 +6,14 @@ const signInSuccess = (data) => {
   app.user = data.user
   console.log(app)
   console.log('sign in succes!')
-  $('#newgame').removeClass('hide')
+  $('.Yogaclasses').show()
 }
 
 const signOutSuccess = () => {
   app.user = null
   console.log(app)
   console.log('sign out success!')
-  $('#newgame').addClass('hide')
+  $('#newappoitment').addClass('hide')
 }
 
 const changePasswordSuccess = (data) => {
@@ -31,13 +31,13 @@ const signUpFailure = (error) => {
   console.error(error)
   console.log('something is wrong with!')
 }
-const createGameSuccess = (data) => {
+const createAppoitmentSuccess = (data) => {
   app.game = data.game
   app.game.id = data.game.id
   console.log(data)
   console.log('Succeded')
 }
-const createGameFailure = (error) => {
+const createAppoitmentFailure = (error) => {
   console.log(error)
   console.log('Failed')
 }
@@ -57,5 +57,9 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  createAppoitmentSuccess,
+  createAppoitmentFailure,
+  getHistorySuccess,
+  getHistoryFailure
 }

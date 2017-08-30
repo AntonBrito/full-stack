@@ -36,17 +36,17 @@ const onChangePassword = function (event) {
     .fail(ui.fail)
 }
 
-const onCreateGame = function (event) {
+const onCreateAppoitments = function (event) {
   event.preventDefault()
   api.createGame()
-    .then(ui.createGamesSuccess)
-    .catch(ui.createGameFailure)
+    .then(ui.createAppoitmentSuccess)
+    .catch(ui.createAppoitmentFailure)
 }
 
-const onUpdateGame = function (index, val, over) {
+const onUpdateAppoitment = function (index, val, over) {
   api.updateGame(index, val, over)
-    .then(ui.updateGameSuccess)
-    .catch(ui.updateGameFailure)
+    .then(ui.updateAppoitmentSuccess)
+    .catch(ui.updateAppoitmentFailure)
 }
 const onGetHistory = function (event) {
   event.preventDefault()
@@ -54,6 +54,31 @@ const onGetHistory = function (event) {
     .then(ui.getHistorySuccess)
     .catch(ui.getHistoryFailure)
 }
+// const onGetappoitments = function (event) {
+//   event.preventDefault()
+//
+//   booksApi.index()
+//     .then(appoitmentsUi.onSuccess)
+//     .catch(appoitmentsUi.onError)
+// }
+// const onGetBook = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   const appoitment = data.appoitment
+//
+//   if (appoitment.id.length !== 0) {
+//     appoitmentApi.show(appoitment.id)
+//       .then(appoitmentUi.onSuccess)
+//       .catch(appoitmentUi.onError)
+//   } else {
+//     console.log('Please provide a appoitment id!')
+//   }
+// }
+//
+// module.exports = {
+//   onGetappoitment,
+//   onGetappoitment
+// }
 
 $('#sign-up').on('submit', onSignUp)
 $('#sign-in').on('submit', onSignIn)
@@ -64,5 +89,8 @@ module.exports = {
   onSignIn,
   onSignUp,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onCreateAppoitments,
+  onUpdateAppoitment,
+  onGetHistory
 }
