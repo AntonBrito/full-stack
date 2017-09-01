@@ -38,7 +38,7 @@ const onChangePassword = function (event) {
 
 const onCreateAppoitments = function (event) {
   event.preventDefault()
-  api.createGame()
+  api.createAppoitment()
     .then(ui.createAppoitmentSuccess)
     .catch(ui.createAppoitmentFailure)
 }
@@ -74,12 +74,7 @@ const onGetHistory = function (event) {
 //     console.log('Please provide a appoitment id!')
 //   }
 // }
-//
-// module.exports = {
-//   onGetappoitment,
-//   onGetappoitment
-// }
-
+$('#makeappoitment').on('submit', onCreateAppoitments)
 $('#sign-up').on('submit', onSignUp)
 $('#sign-in').on('submit', onSignIn)
 $('#sign-out').on('submit', onSignOut)

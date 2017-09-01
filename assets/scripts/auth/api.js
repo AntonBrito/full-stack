@@ -91,13 +91,14 @@ const updateAppoitment = (index, val, over) => {
 }
 const getHistory = (data) => {
   return $.ajax({
-    url: app.host + '/appoitments?over=true',
+    url: app.host + '/appoitments',
     method: 'GET',
     headers: {
       Authorization: 'Token token' + app.user.token
     }
   })
 }
+
 module.exports = {
   signUp,
   signIn,

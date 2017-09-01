@@ -16,19 +16,19 @@
       <header>
       <h1>OndaSuave</h1>
       <div class="sig">
-      <div class="dropdown">
+      <div class="dropdown botton">
       <button class="dropbtn">sign Up</button>
       <div class="dropdown-content">
         <form id="sign-up">
           <input type="text" name="credentials[email]" value="" placeholder="email">
           <input type="password" name="credentials[password]" value="" placeholder="password">
-          <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+          <input type="password" name="credentials[password_confirmation]" value="" placeholder="pass confirmation">
           <input type="submit" name="submit" value="Sign up!" class="submit">
       </form>
 
       </div>
     </div>
-     <div class="dropdown">
+     <div class="dropdown botton">
      <button class="dropbtn">Log In</button>
      <div class="dropdown-content">
        <form id="sign-in">
@@ -44,10 +44,10 @@
  <div class="dropdown-content">
    <a href="#">Link 1</a>
    <a href="#">Link 2</a>
-   <a href="#">Link 3</a>
-   <div class="dropdown">
+   <a href="#">Delete appoitment</a>
+ <div class="dropdown">
    <button class="dropbtn">changePassword</button>
-   <div class="dropdown-content">
+ <div class="dropdown-content">
    <form id="change-password">
        <input type="password" name="credentials[old]" value="" placeholder="Old Password">
        <input type="password" name="credentials[new]" value="" placeholder="New Password">
@@ -86,14 +86,18 @@
     <button id="schedule" class="schedule" value="schedule">Schedule</button>
     <br>
 
-  <!-- <div class="appoitment">
+<div class="appoitment">
     <table>
       <tr>
         <th>Appoitments</th>
         <th>date-time</th>
       </tr>
     </table>
-  </div> -->
+    <form>
+      <input type="text" name="appoitments[date]" value="" placeholder="date" id="appoitment-date">
+      <input type="submit" name="submit" value="Make appoitment!" class="submit" id="appoitment-create">
+  </form>
+</div>
 
 <div class="Yogaclasses">
 <table style="width:100%">

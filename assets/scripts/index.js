@@ -34,7 +34,7 @@ const makeappoitment = (data) => {
   $('#makeappointment').empty()
   for (let i = 0; i < data.appoitments.length; i++) {
     $('#makeappointment').append(
-      '<tr class="title">' +
+      '<tr class="Appoitment">' +
         '<th>' + data.appoitments[i].title + '</th>' +
       '</tr>' +
       '<tr class="content">' +
@@ -43,15 +43,15 @@ const makeappoitment = (data) => {
       '</tr>' +
       '<tr class="comment-button">' +
       '<td>' +
-      '<input type="text" name="title" form="comment-form" placeholder="Title" />' +
-      '<input type="text" name="comment" form="comment-form" placeholder="Comment" />' +
+      '<input type="text" name="Name" form="appoitments-form" placeholder="Name" />' +
+      '<input type="text" name="appoitments" form="appoitments-form" placeholder="email" />' +
       '<tr class="submit-comment">' +
       '<td>' +
-      '<button type="button" form="comment-form" id="commentButton">' + 'Comments?' + '</button>' +
+      '<button type="button" form="comment-form" id="makeappointment">' + 'appoitments?' + '</button>' +
       '</td>' +
       '</tr>' +
       '<tr hidden>' +
-      '<td id="postId">' + data.appoitments[i].id +
+      '<td id="NAme">' + data.appoitments[i].id +
       '</td>' +
       '</tr>' +
       '</td>' +
