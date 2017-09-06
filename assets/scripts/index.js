@@ -16,16 +16,18 @@ const events = require('./auth/events.js')
 
 $(document).ready(function () {
   $('.Yogaclasses').hide()
-  $('#sign-up').on('submit', events.onSignUp)
+  //  $('#sign-in').on('submit', events.onSignUp)
 })
 $(document).ready(function () {
   $('#schedule').on('click', function () {
     $('.Yogaclasses').show()
   })
-  $('#sign-in').on('submit', events.onSignIn)
+  // $('#sign-in').on('submit', events.onSignIn)
 })
-
-$('#makeappoitment').on('click', events.createAppoitment)
+// $(document).ready(function () {
+//   $('#makeappoitment').on('click', function () {
+//     $('.createappoitment').show()
+// })
 
 const makeappoitment = (data) => {
   console.log(data)

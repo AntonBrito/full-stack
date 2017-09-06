@@ -81,25 +81,27 @@
       allowing mothers and families, <br>from all backgrounds and of all financial means, to access education,<br> care and support.</p>
     </div>
     <br>
-    <button id="makeappointment" class="makeapoitment" value="create_appointment">Make Appointment Now</button>
+    <button id="makeappointment" class="makeappoitment" value="create_appointment">Make Appointment Now</button>
     <br>
-    <button id="schedule" class="schedule" value="schedule">Schedule</button>
+    <button id="schedule" class="schedule" value="schedule">Yoga Schedule</button>
     <br>
 
 <div class="appoitment">
-    <table>
-      <tr>
-        <th>Appoitments</th>
-        <th>date-time</th>
-      </tr>
+    <table class="appoitmassage">
+      <thead>
+        <tr>
+          <th>Appoitments ID</th>
+          <th>Date-time</th>
+        </tr>
+      </thead>
     </table>
-    <form>
-      <input type="text" name="appoitments[date]" value="" placeholder="date" id="appoitment-date">
-      <input type="submit" name="submit" value="Make appoitment!" class="submit" id="appoitment-create">
-  </form>
+    <form id="createappoitment" class="createappoitment">
+      <input type="email" name="appoitments[date]" value="" placeholder="date" id="appoitment-date">
+      <input type="datetime" name="time" value="Make appoitment!" class="submit" id="appoitment-create">
+    </form>
 </div>
 
-<div class="Yogaclasses">
+<div class="Yogaclasses yogaclasse">
 <table style="width:100%">
   <caption>Yoga classes</caption>
   <tr>

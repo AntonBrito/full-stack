@@ -97,17 +97,34 @@ h2 {
 //   width: 100px;
 // }
 
-.makeapoitment {
+.makeappoitment {
   background-color: $azul;
   border-radius: 5px;
   cursor: pointer;
   height: 5vh;
-  line-height: 5vh;
+  line-height: .5vh;
   margin: .5vh;
   padding: 0;
   text-align: center;
   vertical-align: middle;
-  width: 160px;
+  width: 200px;
+}
+
+// .appoitment {
+//   background-color: $azul;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   height: 5vh;
+//   line-height: .5vh;
+//   margin: .5vh;
+//   padding: 0;
+//   text-align: center;
+//   vertical-align: middle;
+//   width: 100px;
+// }
+
+.yogaclasse {
+
 }
 
 caption {
