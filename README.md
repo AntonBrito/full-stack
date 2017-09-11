@@ -57,5 +57,3 @@ _A user can sign up with their email and password provide by the user.
         I used jquerry to allow the event handleres.
 
         I used jquerry to allow us to hide the table and to show it after the is been pressing or after sign in with your account.
-
-        Sign-up is been having little errors coming from the back server side, Thats something Im planning to make it work after the prsentation.
