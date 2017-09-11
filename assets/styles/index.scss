@@ -110,6 +110,19 @@ h2 {
   width: 200px;
 }
 
+.delappoitment {
+  background-color: $azul;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 5vh;
+  line-height: .5vh;
+  margin: .5vh;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  width: 200px;
+}
+
 // .appoitment {
 //   background-color: $azul;
 //   border-radius: 5px;
@@ -131,6 +144,19 @@ caption {
   color: $azul;
   font-size: 35px;
   text-align: center;
+}
+
+.appoitmassage {
+  background-color: $azul;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 5vh;
+  line-height: .5vh;
+  margin: .5vh;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  width: 100px;
 }
 
 .schedule {

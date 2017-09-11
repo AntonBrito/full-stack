@@ -37,6 +37,7 @@ const onChangePassword = function (event) {
 }
 
 const onCreateAppoitments = function (event) {
+  console.log('createAppoitment Succefull')
   event.preventDefault()
   api.createAppoitment()
     .then(ui.createAppoitmentSuccess)
@@ -61,11 +62,7 @@ const onGetHistory = function (event) {
 //     .then(appoitmentsUi.onSuccess)
 //     .catch(appoitmentsUi.onError)
 // }
-// const onGetBook = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   const appoitment = data.appoitment
-//
+
 //   if (appoitment.id.length !== 0) {
 //     appoitmentApi.show(appoitment.id)
 //       .then(appoitmentUi.onSuccess)

@@ -24,6 +24,10 @@ _A user can sign up with their email and password provide by the user.
 
 -As developer I will work on this app to provide more to clients and the employers.
 
+-As a user we can create an appointment using user id, email and pick a date.
+
+-Eventually I would like setup a way to read that after schedulling a appointment user can see their name on an form with date and time.
+
     ONDASUAVE
 
     is a wellness center dedicated to growing families. We offer Yoga classes & Massage therapy. Soon we will be adding addicional education
@@ -58,4 +62,4 @@ _A user can sign up with their email and password provide by the user.
 
         I used jquerry to allow us to hide the table and to show it after the is been pressing or after sign in with your account.
 
-        Sign-up is been having little errors coming from the back server side, Thats something Im planning to make it work after the prsentation.
+        I used a Bootstrap customaztion form, to the making an appoitment form.

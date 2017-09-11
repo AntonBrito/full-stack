@@ -6,7 +6,8 @@ const signInSuccess = (data) => {
   app.user = data.user
   console.log(app)
   console.log('sign in succes!')
-  $('.Yogaclasses').show()
+  $('.schedule').show()
+  $('.newappoitment').show()
 }
 
 const signOutSuccess = () => {
@@ -14,6 +15,8 @@ const signOutSuccess = () => {
   console.log(app)
   console.log('sign out success!')
   $('#newappoitment').addClass('hide')
+  $('.Yogaclasses').hide()
+  $('.schedule').hide()
 }
 
 const changePasswordSuccess = (data) => {
@@ -32,8 +35,8 @@ const signUpFailure = (error) => {
   console.log('something is wrong with!')
 }
 const createAppoitmentSuccess = (data) => {
-  app.game = data.game
-  app.game.id = data.game.id
+  app.appoitment = data.appoitment
+  app.appoitment.id = data.appoitment.id
   console.log(data)
   console.log('Succeded')
 }
@@ -42,7 +45,7 @@ const createAppoitmentFailure = (error) => {
   console.log('Failed')
 }
 const getHistorySuccess = (data) => {
-  $('.oldGames').html('You have played gsmes before user ' + app.user.id)
+  $('.oldAppoitments').html('You have made appoitments before user ' + app.user.id)
   console.log('look here')
   console.log(data.id)
   console.log('Succeded')

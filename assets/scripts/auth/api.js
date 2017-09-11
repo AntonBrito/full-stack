@@ -64,23 +64,30 @@ const changePassword = function (data) {
 const createAppoitment = (data) => {
   console.log(data)
   return $.ajax({
-    url: app.host + '/appoitment/',
+    url: app.host + '/appoitments/',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + app.user.token
+    },
+    data: {
+      'appoitment': {
+        'id': 1,
+        'date': 'sep-15-2017',
+        'user_id': 1
+      }
     }
   })
 }
 const updateAppoitment = (index, val, over) => {
   return $.ajax({
-    url: app.host + '/appoitment/' + app.game.id,
+    url: app.host + '/appoitment/' + app.appoitment.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + app.user.token
     },
     data: {
-      'game': {
-        'cell': {
+      'appoitment': {
+        'id': {
           'index': index,
           'value': val
         },
