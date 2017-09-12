@@ -76,7 +76,6 @@ $('#sign-up').on('submit', onSignUp)
 $('#sign-in').on('submit', onSignIn)
 $('#sign-out').on('submit', onSignOut)
 $('#change-password').on('submit', onChangePassword)
-$('#makeappoitment').on(click', createApp)
 
 module.exports = {
   onSignIn,
@@ -85,6 +84,5 @@ module.exports = {
   onSignOut,
   onCreateAppoitments,
   onUpdateAppoitment,
-  onGetHistory,
-
+  onGetHistory
 }

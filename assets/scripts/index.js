@@ -24,6 +24,8 @@ $(document).ready(function () {
   $('#makeappoitment').on('click', events.onCreateMeetings)
 })
 
+
+
 // $(document).ready(function () {
 //   $('#makeappoitment').on('click', function () {
 //     $('.createappoitment').show()

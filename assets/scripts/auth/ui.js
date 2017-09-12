@@ -8,6 +8,9 @@ const signInSuccess = (data) => {
   console.log('sign in succes!')
   $('.schedule').show()
   $('.newappoitment').show()
+  if (app.user.provider === true) {
+    console.log('this is a provider')
+  }
 }
 
 const signOutSuccess = () => {
