@@ -21,6 +21,7 @@ $(document).ready(function () {
   })
   // CREATE
   $('#createAppoitment').on('click', events.onCreateAppoitments)
+  $('#makeappoitment').on('click', events.onCreateMeetings)
 })
 
 // $(document).ready(function () {

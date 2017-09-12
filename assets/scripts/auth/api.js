@@ -106,6 +106,21 @@ const getHistory = (data) => {
   })
 }
 
+const createApp = function () {
+  console.log('The data is ' + app.user.providers)
+  return $.ajax({
+    url: app.host + '/meetings/',
+    method: 'POST',
+    data: { // this are the datas
+      'meeting': {
+        'name': '2012-10-23',
+        'user_id': app.user.id,
+        'provider_id': 1
+      }
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -113,5 +128,6 @@ module.exports = {
   changePassword,
   createAppoitment,
   updateAppoitment,
-  getHistory
+  getHistory,
+  createApp
 }
