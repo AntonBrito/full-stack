@@ -1,6 +1,7 @@
 'use strict'
-
-const app = require('./../app')
+const app = require('./../app.js')
+const config = require('./../config.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
 // const getFormFields = require('../../../lib/get-form-fields.js');
 
 // authApi.signUp(authUi.success, authUi.failure, data);
@@ -64,17 +65,16 @@ const changePassword = function (data) {
 const createAppoitment = (data) => {
   console.log(data)
   return $.ajax({
-    url: app.host + '/appoitments/',
+    url: config.apiOrigin + '/appoitments/',
     method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + app.user.token
-    },
     data: {
       'appoitment': {
-        'id': 1,
-        'date': 'sep-15-2017',
-        'user_id': 1
+        'date': data.date,
+        'user_id': data.user_id
       }
+    },
+    headers: {
+      Authorization: 'Token token=' + app.user.token
     }
   })
 }
@@ -96,6 +96,18 @@ const updateAppoitment = (index, val, over) => {
     }
   })
 }
+
+const showAppointments = function (data) {
+  console.log('Here is the appoitment' + app.user)
+  return $.ajax({
+    url: config.apiOrigin + '/appointments/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
 const getHistory = (data) => {
   return $.ajax({
     url: app.host + '/appoitments',
@@ -126,8 +138,10 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
+  getFormFields,
   createAppoitment,
   updateAppoitment,
   getHistory,
+  showAppointments,
   createApp
 }

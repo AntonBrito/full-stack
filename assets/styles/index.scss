@@ -9,7 +9,7 @@ header {
 }
 
 body {
-  // background-color: $lightgreen;
+  background-color: $lightgray;
 }
 
 .dropbtn {
@@ -65,6 +65,39 @@ body {
 li {
   display: inline-block;
   font-size: 30px;
+  padding: 10px;
+}
+
+.side-navbar {
+  background-color: $lightorange;
+  border: 2px solid $black;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  height: 90;
+  width: 300px;
+
+}
+
+.get-yogaschedule {
+  font-size: 30px;
+  font-family: 'Lilita One', cursive;
+}
+
+.create-appoitment {
+  font-size: 30px;
+  font-family: 'Lilita One', cursive;
+}
+
+.my-appoitment {
+  font-size: 30px;
+  font-family: 'Lilita One', cursive;
+}
+
+.show-all-appoitment {
+  font-size: 30px;
+  font-family: 'Lilita One', cursive;
 }
 
 h1 {

@@ -65,18 +65,27 @@
    </header>
     <div class="navbar">
       <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home" id="mainpage" class="mainpage"></a>Home</li>
 
-        <li><a href="#news">News</a></li>
+        <li><a href="#getschedule">News</a></li>
 
         <li><a href="#contact">Contact</a></li>
 
         <li><a href="#about">About us</a></li>
       </ul>
     </div>
-    <div class="introduction">
+
+    <div id="side-navbar" class="side-navbar">
+      <ul>
+        <li><a id="create-appoitment"class="create-appoitment" href="#makeappoitment">Make appoitment</a></li>
+        <li><a id="my-appoitments" class="my-appoitment" href="#myappoitments">My appoitments</a></li>
+        <li><a id="show-all-appoitments" class="show-all-appoitment" href="#showAppointments">All appoitments</a></li>
+        <li><a id="get-yogaschedule" class="get-yogaschedule"href="#yogaschecule">Yoga schedule</a></li>
+      </ul>
+    </div>
+    <div id="introduction" class="introduction">
     <h2>OndaSuave</h2>
-    <p class=onda> is a wellness center dedicated to growing families. We offer <strong>Yoga</strong> classes & <strong>Massage therapy</strong>.<br> Soon we will be adding addicional education
+    <p id="onda" class="onda"> is a wellness center dedicated to growing families. We offer <strong>Yoga</strong> classes & <strong>Massage therapy</strong>.<br> Soon we will be adding addicional education
        and wellness services.<br> Our commitment is to ALL families. <br> Our program costs are income based,
       allowing mothers and families, <br>from all backgrounds and of all financial means, to access education,<br> care and support.</p>
     </div>
@@ -112,11 +121,11 @@
         <input type="email" class="form-control" id="email" placeholder="Email">
       </div>
     </div>
-    <div class="form-group row">
+    <!-- <div class="form-group row">
       <label for="inputPassword3" class="col-sm-2 col-form-label">Id</label>
       <div class="col-sm-10">
         <input type="id" class="form-control" id="appoitmentId" placeholder="ID">
-      </div>
+      </div> -->
     </div>
     <div class="form-group row">
       <label for="inputEmail3" class="col-sm-2 col-form-label">Date</label>
@@ -130,6 +139,19 @@
       </div>
     </div>
   </form>
+
+<button id="showappointment" class="showappointment" value="showappointment">Show appointments</button>
+
+  <div id="appointment-table" class="appointment-table">
+  <table style="width:80%">
+    <caption>Appoitment</caption>
+    <tr>
+      <th>Email</th>
+      <th>Date-Time</th>
+    </tr>
+    <tr id="appoitment-content-tb">
+    </tr>
+  </table>
 </div>
 
 <div class="Yogaclasses yogaclasse">

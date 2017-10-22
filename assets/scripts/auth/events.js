@@ -1,8 +1,9 @@
 'use strict'
 
-const api = require('./api')
-const ui = require('./ui')
+const api = require('./api.js')
+const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
+const app = require('../app.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -36,16 +37,26 @@ const onChangePassword = function (event) {
     .fail(ui.fail)
 }
 
-const onCreateAppoitments = function (event) {
+const onCreateAppoitment = function (event) {
   console.log('createAppoitment Succefull')
   event.preventDefault()
   api.createAppoitment()
     .then(ui.createAppoitmentSuccess)
     .catch(ui.createAppoitmentFailure)
 }
+const onShowAppointments = function (event) {
+  console.log('showAppointments Succefull')
+  event.preventDefault()
+  api.showAppointments()
+    .then(ui.showAppointmentsSuccess)
+    .catch(ui.showAppointmentsFailure)
+}
 
-const onUpdateAppoitment = function (index, val, over) {
-  api.updateGame(index, val, over)
+const onUpdateAppoitment = function (event) {
+  const data = getFormFields(this)
+  const dataId = this.getAttribute('data-id')
+  event.preventDefault()
+  api.updateGame(data, dataId)
     .then(ui.updateAppoitmentSuccess)
     .catch(ui.updateAppoitmentFailure)
 }
@@ -71,7 +82,7 @@ const onGetHistory = function (event) {
 //     console.log('Please provide a appoitment id!')
 //   }
 // }
-$('#makeappoitment').on('submit', onCreateAppoitments)
+$('#makeappoitment').on('submit', onCreateAppoitment)
 $('#sign-up').on('submit', onSignUp)
 $('#sign-in').on('submit', onSignIn)
 $('#sign-out').on('submit', onSignOut)
@@ -82,7 +93,8 @@ module.exports = {
   onSignUp,
   onChangePassword,
   onSignOut,
-  onCreateAppoitments,
+  onCreateAppoitment,
+  onShowAppointments,
   onUpdateAppoitment,
   onGetHistory
 }

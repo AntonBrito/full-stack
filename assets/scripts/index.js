@@ -22,44 +22,19 @@ $(document).ready(function () {
   // CREATE
   $('#createAppoitment').on('click', events.onCreateAppoitments)
   $('#makeappoitment').on('click', events.onCreateMeetings)
+  $('#showappointment').on('click', events.onShowAppointments)
 })
 
-
-
-// $(document).ready(function () {
-//   $('#makeappoitment').on('click', function () {
-//     $('.createappoitment').show()
+// $(document).on('click', '.appoitmentEditButton', events.onUpdateLandlordSaveId)
+// $(document).on('click', '.meetingEditButton', events.onUpdateCommentSaveId)
+// $(document).on('click', '.show-all-appoitments', events.onGetAllappoitments)
+// $(document).on('click', '.appoitmentDeleteButton', events.onDeleteComment)
+// $(document).on('click', '.meetingDeleteButton', events.onDeleteLandlord)
+// $(document).on('click', '.appoitmentEditButton', function () {
+//   $('#update_appoitment').show()
+// })
+// $(document).on('click', '.mettingEditButton', function () {
+//   $('#metting_landlord').show()
 // })
 //
-// const makeappoitment = (data) => {
-//   console.log(data)
-//   console.log('Succeded')
-//   console.log(data.appoitments.length)
-//   $('#makeappointment').empty()
-//   for (let i = 0; i < data.appoitments.length; i++) {
-//     $('#makeappoitment').append(
-//       '<tr class="Appoitment">' +
-//         '<th>' + data.appoitments[i].title + '</th>' +
-//       '</tr>' +
-//       '<tr class="content">' +
-//       '<td> <textarea>' + data.appoitments[i].content + '</textarea> </td>' +
-//       '<td>' + '<button class="delete-appoitment" data-id="' + data.appoitments[i].id + '" type="button">' + 'Delete Appoitment' + '</button>' + '</td>' +
-//       '</tr>' +
-//       '<tr class="comment-button">' +
-//       '<td>' +
-//       '<input type="text" name="Name" form="appoitments-form" placeholder="Name" />' +
-//       '<input type="text" name="appoitments" form="appoitments-form" placeholder="email" />' +
-//       '<tr class="submit-comment">' +
-//       '<td>' +
-//       '<button type="button" form="appoitment-form" id="makeappointment">' + 'appoitments?' + '</button>' +
-//       '</td>' +
-//       '</tr>' +
-//       '<tr hidden>' +
-//       '<td id="NAme">' + data.appoitments[i].id +
-//       '</td>' +
-//       '</tr>' +
-//       '</td>' +
-//       '</tr>'
-//     )
-//   }
-// }
+// $('.appoitmentEditButton, .appoitmentDeleteButton').hide()
