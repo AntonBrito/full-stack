@@ -1,9 +1,9 @@
 // 'use strict'
 //
 //
-// const makeAppoitment = function () {
+// const makeAppointment = function () {
 //
 // }
-// // TODO create appoitment
-// // TODO make that after sign in we can make appoitment
+// // TODO create Appointment
+// // TODO make that after sign in we can make Appointment
 // // TODO make

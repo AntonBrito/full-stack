@@ -6,7 +6,7 @@
 
                       Under Construction!
 
-OndaSuave its an app that helps users make an appoitment with massage therapy or get schedulle of different events as yoga classes and more that will be add later.
+OndaSuave its an app that helps users make an Appointment with massage therapy or get schedulle of different events as yoga classes and more that will be add later.
 
 
                         User stories
@@ -18,7 +18,7 @@ _A user can sign up with their email and password provide by the user.
 
 -As a user we can change password or signout.
 
--As a user after sign up, we can have access to get schedulle or make an appoitment according with your daily schedulle
+-As a user after sign up, we can have access to get schedulle or make an Appointment according with your daily schedulle
 
 -As a user we can have good information or news about events thats its happening or that its coming.
 
@@ -62,4 +62,4 @@ _A user can sign up with their email and password provide by the user.
 
         I used jquerry to allow us to hide the table and to show it after the is been pressing or after sign in with your account.
 
-        I used a Bootstrap customaztion form, to making an appoitment form.
+        I used a Bootstrap customaztion form, to making an Appointment form.

@@ -44,7 +44,7 @@
  <div class="dropdown-content">
    <a href="#">Link 1</a>
    <a href="#">Link 2</a>
-   <a href="#">Delete appoitment</a>
+   <a href="#">Delete Appointment</a>
  <div class="dropdown">
    <button class="dropbtn">changePassword</button>
  <div class="dropdown-content">
@@ -77,10 +77,12 @@
 
     <div id="side-navbar" class="side-navbar">
       <ul>
-        <li><a id="create-appoitment"class="create-appoitment" href="#makeappoitment">Make appoitment</a></li>
-        <li><a id="my-appoitments" class="my-appoitment" href="#myappoitments">My appoitments</a></li>
-        <li><a id="show-all-appoitments" class="show-all-appoitment" href="#showAppointments">All appoitments</a></li>
+        <br><br><br>
+        <li><a id="create-Appointment"class="create-Appointment" href="#makeAppointment">Make Appointment</a></li>
+        <li><a id="my-Appointments" class="my-Appointment" href="#myAppointments">My Appointments</a></li>
+        <li><a id="show-all-Appointments" class="show-all-Appointment" href="#showAppointments">All Appointments</a></li>
         <li><a id="get-yogaschedule" class="get-yogaschedule"href="#yogaschecule">Yoga schedule</a></li>
+        <br><br><br><br>
       </ul>
     </div>
     <div id="introduction" class="introduction">
@@ -90,26 +92,26 @@
       allowing mothers and families, <br>from all backgrounds and of all financial means, to access education,<br> care and support.</p>
     </div>
     <br>
-    <button id="makeappoitment" class="makeappoitment" value="create_appointment">Make Appointment Now</button>
+    <button id="makeAppointment" class="makeAppointment" value="create_appointment">Make Appointment Now</button>
     <br>
     <button id="schedule" class="schedule" value="schedule">Yoga Schedule</button>
     <br><br>
-    <button id="delappoitment" class="delappoitment"
-    value="delete-appoitment">Delete appoitment</button>
+    <button id="delAppointment" class="delAppointment"
+    value="delete-Appointment">Delete Appointment</button>
 
 
-<div class="appoitment">
+<div class="Appointment">
     <table class="appoitmassage" style="width:100%">
       <thead>
         <tr>
-          <th>Appoitments ID</th>
+          <th>Appointments ID</th>
           <th>Date-time</th>
         </tr>
       </thead>
     </table>
-    <form id="createappoitment" class="createappoitment">
-      <input type="email" name="appoitments[date]" value="" placeholder="date" id="appoitment-date">
-      <input type="datetime" name="time" value="Make appoitment!" class="submit" id="appoitment-create">
+    <form id="create_Appointment" class="createAppointment">
+      <input type="email" name="Appointments[date]" value="" placeholder="date" id="Appointment-date">
+      <input type="datetime" name="time" value="Make Appointment!" class="submit" id="Appointment-create">
     </form>
 </div>
 
@@ -121,21 +123,17 @@
         <input type="email" class="form-control" id="email" placeholder="Email">
       </div>
     </div>
-    <!-- <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Id</label>
-      <div class="col-sm-10">
-        <input type="id" class="form-control" id="appoitmentId" placeholder="ID">
-      </div> -->
+
     </div>
     <div class="form-group row">
       <label for="inputEmail3" class="col-sm-2 col-form-label">Date</label>
       <div class="col-sm-10">
-        <input type="date" class="form-control" id="appoitmentDate" placeholder="Date">
+        <input type="date" class="form-control" id="AppointmentDate" placeholder="Date">
       </div>
     </div>
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
-        <button type="submit" id="createAppoitment">Make appoitment</button>
+        <button type="submit" id="createAppointment">Make Appointment</button>
       </div>
     </div>
   </form>
@@ -144,12 +142,12 @@
 
   <div id="appointment-table" class="appointment-table">
   <table style="width:80%">
-    <caption>Appoitment</caption>
+    <caption>Appointment</caption>
     <tr>
       <th>Email</th>
       <th>Date-Time</th>
     </tr>
-    <tr id="appoitment-content-tb">
+    <tr id="Appointment-content-tb">
     </tr>
   </table>
 </div>

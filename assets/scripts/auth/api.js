@@ -62,15 +62,18 @@ const changePassword = function (data) {
     }
   })
 }
-const createAppoitment = (data) => {
+const createAppointment = (data) => {
   console.log(data)
   return $.ajax({
-    url: config.apiOrigin + '/appoitments/',
+    url: config.apiOrigin + '/Appointments/',
     method: 'POST',
     data: {
-      'appoitment': {
+      'Appointment': {
+        'name': data.name,
+        'lastname': data.lastname,
+        'email': data.email,
         'date': data.date,
-        'user_id': data.user_id
+        'provider_id': data.provider_id
       }
     },
     headers: {
@@ -78,27 +81,27 @@ const createAppoitment = (data) => {
     }
   })
 }
-const updateAppoitment = (index, val, over) => {
+const updateAppointment = (data, datId) => {
   return $.ajax({
-    url: app.host + '/appoitment/' + app.appoitment.id,
+    url: app.host + '/Appointment/' + app.Appointment.id,
     method: 'PATCH',
+    data: {
+      'Appointment': {
+        'name': data.name,
+        'lastname': data.lastname,
+        'email': data.email,
+        'date': data.date,
+        'provider_id': data.provider_id
+      }
+    },
     headers: {
       Authorization: 'Token token=' + app.user.token
-    },
-    data: {
-      'appoitment': {
-        'id': {
-          'index': index,
-          'value': val
-        },
-        'over': over
-      }
     }
   })
 }
 
-const showAppointments = function (data) {
-  console.log('Here is the appoitment' + app.user)
+const getMyAppointments = function (data) {
+  console.log('Here is the Appointment' + app.user)
   return $.ajax({
     url: config.apiOrigin + '/appointments/',
     method: 'GET',
@@ -108,27 +111,147 @@ const showAppointments = function (data) {
   })
 }
 
-const getHistory = (data) => {
+const getAppointments = () => {
   return $.ajax({
-    url: app.host + '/appoitments',
-    method: 'GET',
+    url: config.apiOrigin + '/appointments',
+    method: 'GET'
+  })
+}
+
+const deleteAppointment = (dataId) => {
+  return $.ajax({
+    url: config.apiOrigin + '/appointments/' + dataId,
+    method: 'DELETE',
     headers: {
-      Authorization: 'Token token' + app.user.token
+      Authorization: 'Token token=' + app.user.token
     }
   })
 }
 
-const createApp = function () {
-  console.log('The data is ' + app.user.providers)
+const createProvider = (data) => {
+  console.log(data)
   return $.ajax({
-    url: app.host + '/meetings/',
+    url: config.apiOrigin + '/providers',
     method: 'POST',
-    data: { // this are the datas
-      'meeting': {
-        'name': '2012-10-23',
-        'user_id': app.user.id,
-        'provider_id': 1
+    data: {
+      'provider': {
+        'given_name': data.given_name,
+        'family_name': data.family_name,
+        'email': data.email,
+        'specialty': data.specialty
       }
+    },
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const updateProvider = (data) => {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/providers',
+    method: 'PATCH',
+    data: {
+      'provider': {
+        'given_name': data.given_name,
+        'family_name': data.family_name,
+        'email': data.email,
+        'specialty': data.specialty
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const deleteProvider = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/providers/' + data.provider.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const getAllProviders = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/providers/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const getProvider = (dataId) => {
+  console.log('api.js dataId =' + dataId)
+  return $.ajax({
+    url: config.apiOrigin + '/providers/' + dataId,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const createEvent = (data) => {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/events',
+    method: 'POST',
+    data: {
+      'event': {
+        'name': data.name,
+        'start_date': data.start_date,
+        'end_date': data.end_date,
+        'info': data.specialty
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const updateEvent = (data) => {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/events',
+    method: 'PATCH',
+    data: {
+      'event': {
+        'name': data.name,
+        'start_date': data.start_date,
+        'end_date': data.end_date,
+        'info': data.specialty
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const getEvent = (dataId) => {
+  console.log('api.js dataId =' + dataId)
+  return $.ajax({
+    url: config.apiOrigin + '/events/' + dataId,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const deleteEvent = (dataId) => {
+  return $.ajax({
+    url: config.apiOrigin + '/events/' + dataId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
     }
   })
 }
@@ -139,9 +262,18 @@ module.exports = {
   signOut,
   changePassword,
   getFormFields,
-  createAppoitment,
-  updateAppoitment,
-  getHistory,
-  showAppointments,
-  createApp
+  createAppointment,
+  updateAppointment,
+  getAppointments,
+  getMyAppointments,
+  deleteAppointment,
+  createProvider,
+  updateProvider,
+  getProvider,
+  deleteProvider,
+  getAllProviders,
+  createEvent,
+  updateEvent,
+  getEvent,
+  deleteEvent
 }

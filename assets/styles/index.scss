@@ -6,6 +6,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 header {
   background-color: $azul;
+  border-radius: 45px;
 }
 
 body {
@@ -75,9 +76,9 @@ li {
   margin: 0;
   padding: 0;
   position: fixed;
-  height: 90;
+  height: 100;
   width: 300px;
-
+  border-radius: 55px;
 }
 
 .get-yogaschedule {
@@ -85,17 +86,17 @@ li {
   font-family: 'Lilita One', cursive;
 }
 
-.create-appoitment {
+.create-Appointment {
   font-size: 30px;
   font-family: 'Lilita One', cursive;
 }
 
-.my-appoitment {
+.my-Appointment {
   font-size: 30px;
   font-family: 'Lilita One', cursive;
 }
 
-.show-all-appoitment {
+.show-all-Appointment {
   font-size: 30px;
   font-family: 'Lilita One', cursive;
 }
@@ -130,7 +131,7 @@ h2 {
 //   width: 100px;
 // }
 
-.makeappoitment {
+.makeAppointment {
   background-color: $azul;
   border-radius: 5px;
   cursor: pointer;
@@ -143,7 +144,7 @@ h2 {
   width: 200px;
 }
 
-.delappoitment {
+.delAppointment {
   background-color: $azul;
   border-radius: 5px;
   cursor: pointer;
@@ -156,7 +157,7 @@ h2 {
   width: 200px;
 }
 
-// .appoitment {
+// .Appointment {
 //   background-color: $azul;
 //   border-radius: 5px;
 //   cursor: pointer;
@@ -205,12 +206,15 @@ caption {
   width: 100px;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 3px solid $azul;
   width: 50px;
 }
 
-th, td {
+th,
+td {
   margin: 9px;
   padding: 2px;
   text-align: center;

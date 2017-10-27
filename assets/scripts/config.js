@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://rate-mylandlord.herokuapp.com/',
+    production: 'https://wave-suave.herokuapp.com',
     development: 'http://localhost:4741'
   }
 }

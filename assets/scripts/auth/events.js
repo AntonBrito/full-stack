@@ -4,85 +4,174 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const app = require('../app.js')
+const signUpSuccess = (data) => {
+  app.user = data.user
+  console.log(data)
+  console.log('signed up Successfully')
+  // console.log('I did something in ui.js!')
+}
+
+const signUpFailure = (error) => {
+  console.log(error)
+  console.log('failed to signUp')
+}
 
 const onSignUp = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const data = getFormFields(this)
   api.signUp(data)
-    .done(ui.success)
-    .fail(ui.fail)
+    .then(signUpSuccess)
+    .catch(signUpFailure)
 }
 
 const onSignIn = function (event) {
+  console.log('I did something in onSignIn!')
+  const data = getFormFields(this)
   event.preventDefault()
-  const data = getFormFields(event.target)
   api.signIn(data)
-    .done(ui.signInSuccess)
-    .fail(ui.fail)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 const onSignOut = function (event) {
+  console.log('tryin to sign out')
+  const data = getFormFields(this)
   event.preventDefault()
-  const data = getFormFields(event.target)
   api.signOut(data)
-    .done(ui.signOutSuccess)
-    .fail(ui.fail)
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
 }
 
 const onChangePassword = function (event) {
+  const data = getFormFields(this)
   event.preventDefault()
-  const data = getFormFields(event.target)
   api.changePassword(data)
-    .done(ui.changePasswordSuccess)
-    .fail(ui.fail)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordfailure)
 }
 
-const onCreateAppoitment = function (event) {
-  console.log('createAppoitment Succefull')
+const onCreateAppointment = function (event) {
+  console.log('createAppointment Succefull')
   event.preventDefault()
-  api.createAppoitment()
-    .then(ui.createAppoitmentSuccess)
-    .catch(ui.createAppoitmentFailure)
+  api.createAppointment()
+    .then(ui.createAppointmentSuccess)
+    .catch(ui.createAppointmentFailure)
 }
-const onShowAppointments = function (event) {
+const onGetAppointments = function (event) {
   console.log('showAppointments Succefull')
   event.preventDefault()
   api.showAppointments()
-    .then(ui.showAppointmentsSuccess)
-    .catch(ui.showAppointmentsFailure)
+    .then(ui.showAppointmentSuccess)
+    .catch(ui.showAppointmentFailure)
 }
 
-const onUpdateAppoitment = function (event) {
+const onGetAllAppointments = function (event) {
+  event.preventDefault()
+  api.getAllproviders()
+    .then(ui.getAllAppoitmentsSuccess)
+    .catch(ui.getAllAppoitmentsFailure)
+}
+
+const onUpdateAppointment = function (event) {
   const data = getFormFields(this)
   const dataId = this.getAttribute('data-id')
   event.preventDefault()
   api.updateGame(data, dataId)
-    .then(ui.updateAppoitmentSuccess)
-    .catch(ui.updateAppoitmentFailure)
+    .then(ui.updateAppointmentSuccess)
+    .catch(ui.updateAppointmentFailure)
 }
+
+const onUpdateAppointmentSaveId = function (event) {
+  const dataId = this.getAttribute('data-id')
+  console.log('onUpdateAppointmentSaveId = ' + dataId)
+  event.preventDefault()
+  $('#update_Appointment_form').attr({
+    'data-id': dataId
+  })
+}
+
 const onGetHistory = function (event) {
   event.preventDefault()
   api.getHistory()
     .then(ui.getHistorySuccess)
     .catch(ui.getHistoryFailure)
 }
-// const onGetappoitments = function (event) {
-//   event.preventDefault()
-//
-//   booksApi.index()
-//     .then(appoitmentsUi.onSuccess)
-//     .catch(appoitmentsUi.onError)
-// }
 
-//   if (appoitment.id.length !== 0) {
-//     appoitmentApi.show(appoitment.id)
-//       .then(appoitmentUi.onSuccess)
-//       .catch(appoitmentUi.onError)
-//   } else {
-//     console.log('Please provide a appoitment id!')
-//   }
-// }
-$('#makeappoitment').on('submit', onCreateAppoitment)
+const onCreateProvider = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.createprovider(data)
+    .then(ui.createProviderSuccess)
+    .catch(ui.createProviderFailure)
+}
+
+const onUpdateProvider = function (event) {
+  const data = getFormFields(this)
+  const dataId = this.getAttribute('data-id')
+  console.log('onUpdateProvider dataId = ' + dataId)
+  event.preventDefault()
+  api.updateProvider(data, dataId)
+    .then(ui.editProviderSuccess)
+    .catch(ui.editProviderSuccessFailure)
+}
+
+const onUpdateProviderSaveId = function (event) {
+  const dataId = this.getAttribute('data-id')
+  console.log('onUpdateProviderSaveId = ' + dataId)
+  event.preventDefault()
+  $('#update_provider_form').attr({
+    'data-id': dataId
+  })
+}
+
+const onDeleteProvider = function (event) {
+  const data = this.getAttribute('data')
+  event.preventDefault()
+  api.deleteProvider(data)
+    .then(ui.deleteProviderSuccess)
+    .catch(ui.deleteProviderFailure)
+}
+
+const onGetProvider = function (event) {
+  console.log(app.user)
+  event.preventDefault()
+  api.getProvider()
+    .then(ui.getProviderSuccess)
+    .catch(ui.getProviderFailure)
+}
+
+const onGetAllProviders = function (event) {
+  event.preventDefault()
+  api.getAllProviders()
+    .then(ui.getAllProvidersSuccess)
+    .catch(ui.getAllProvidersFailure)
+}
+
+const onCreateEvent = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.createEvent(data)
+    .then(ui.createEventSuccess)
+    .catch(ui.createEventFailure)
+}
+
+const onGetEvent = function (event) {
+  console.log(app.user)
+  event.preventDefault()
+  api.getProvider()
+    .then(ui.getEventSuccess)
+    .catch(ui.getEventFailure)
+}
+
+const onDeleteEvent = function (event) {
+  const data = this.getAttribute('data')
+  event.preventDefault()
+  api.deleteEvent(data)
+    .then(ui.deleteEventSuccess)
+    .catch(ui.deleteEventFailure)
+}
+
+$('#makeAppointment').on('submit', onCreateAppointment)
 $('#sign-up').on('submit', onSignUp)
 $('#sign-in').on('submit', onSignIn)
 $('#sign-out').on('submit', onSignOut)
@@ -93,8 +182,19 @@ module.exports = {
   onSignUp,
   onChangePassword,
   onSignOut,
-  onCreateAppoitment,
-  onShowAppointments,
-  onUpdateAppoitment,
-  onGetHistory
+  onCreateAppointment,
+  onGetAppointments,
+  onGetAllAppointments,
+  onUpdateAppointment,
+  onUpdateAppointmentSaveId,
+  onGetHistory,
+  onCreateProvider,
+  onGetProvider,
+  onUpdateProvider,
+  onGetAllProviders,
+  onDeleteProvider,
+  onCreateEvent,
+  onGetEvent,
+  onDeleteEvent,
+  onUpdateProviderSaveId
 }
