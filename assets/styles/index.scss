@@ -2,8 +2,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import '~./custom';
 
-// $lightgreen: #86d973;
-
 header {
   background-color: $azul;
   border-radius: 45px;
@@ -83,22 +81,22 @@ li {
 
 .get-yogaschedule {
   font-size: 30px;
-  font-family: 'Lilita One', cursive;
+  // font-family: 'Lilita One', cursive;
 }
 
 .create-Appointment {
-  font-size: 30px;
-  font-family: 'Lilita One', cursive;
+  // font-size: 30px;
+  // font-family: 'Lilita One', cursive;
 }
 
 .my-Appointment {
   font-size: 30px;
-  font-family: 'Lilita One', cursive;
+  // font-family: 'Lilita One', cursive;
 }
 
 .show-all-Appointment {
   font-size: 30px;
-  font-family: 'Lilita One', cursive;
+  // font-family: 'Lilita One', cursive;
 }
 
 h1 {
@@ -110,6 +108,10 @@ h1 {
   background-color: $darkgray;
   color: $lightgreen;
   text-align: center;
+}
+
+.empty-appointments-div {
+  font-size: 20px;
 }
 
 h2 {

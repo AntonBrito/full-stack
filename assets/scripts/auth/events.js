@@ -68,8 +68,8 @@ const onGetAppointments = function (event) {
 const onGetAllAppointments = function (event) {
   event.preventDefault()
   api.getAllproviders()
-    .then(ui.getAllAppoitmentsSuccess)
-    .catch(ui.getAllAppoitmentsFailure)
+    .then(ui.getAllAppointmentsSuccess)
+    .catch(ui.getAllAppointmentsFailure)
 }
 
 const onUpdateAppointment = function (event) {

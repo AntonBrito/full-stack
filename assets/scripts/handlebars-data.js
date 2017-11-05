@@ -1,9 +1,10 @@
-const providersHandlebars = function (giveName, familyName, email) {
+const providersHandlebars = function (giveName, familyName, email, specialty) {
   const providerHandlebarsTemplate = require('./provider-template.handlebars')
   const context = {
     'given_name': giveName,
     'family_name': familyName,
-    'email': email
+    'email': email,
+    'specialty': specialty
   }
   const providerTemplate = providerHandlebarsTemplate(context)
   $('#providers-div').append(providerTemplate)
@@ -24,12 +25,14 @@ const appointmentsHandlebars = function (name, lastname, email, date, providerId
   $('#empty-appointments-div').append(templateFilled)
 }
 
-const dropdownHandlebars = function (name, lastname, date, dataId) {
+const dropdownHandlebars = function (name, email, lastname, date, providerId, dataId) {
   const appointmentHandlebarsTemplate = require('./appointments-dropdown-list.handlebars')
   const context = {
     'name': name,
     'lastname': lastname,
-    'date': date
+    'email': email,
+    'date': date,
+    'provider_id': providerId
   }
   const templateFilled = appointmentHandlebarsTemplate(context)
   $('#listOfappointments').append(templateFilled)

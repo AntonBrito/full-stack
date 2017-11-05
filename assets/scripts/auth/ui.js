@@ -14,7 +14,7 @@ const signUpSuccess = (data) => {
 const signUpFailure = (error) => {
   console.log(error)
   console.log('failed to signUp')
-  $('#update_appoitment_hide').hide()
+  $('#update_Appointment_hide').hide()
 }
 
 const signInSuccess = (data) => {
@@ -26,7 +26,7 @@ const signInSuccess = (data) => {
   $('#signfo').hide()
   $('#message').html('You are Signed In!')
   $('#providers_page').hide()
-  $('#appointments_page #update_appoitment').hide()
+  $('#appointments_page #update_Appointment').hide()
   if (app.user.provider === true) {
     console.log('this is a provider')
   }
@@ -57,8 +57,8 @@ const changePasswordFailure = (error) => {
 }
 
 const createAppointmentSuccess = (data) => {
-  app.Appointment = data.Appointment
-  app.Appointment.id = data.Appointment.id
+  // app.Appointment = data.Appointment
+  // app.Appointment.id = data.Appointment.id
   console.log(data)
   console.log('Succeded')
   $('textare').val('')
@@ -71,22 +71,31 @@ const createAppointmentFailure = (error) => {
 const updateAppointmentSuccess = (data) => {
   console.log(data)
   console.log('Succeded in updateAppointmentSuccess')
-  $('#ppointment-div').empty()
+  $('#appointments-div').empty()
+  const name = data.appointments.name
+  const lastname = data.appointments.lastname.email
+  const date = data.appointments.date
+  const email = data.appointments.email
+  const providerId = data.Appointments.provider_id
+  console.log('name + lastname + email + provider_id')
   template.AppointmentsHandlebars(name, lastname, email, date, providerId)
 }
 
 const getMyAppointmentsSuccess = (data) => {
-  console.log('succeeded in getOneAppoitmentSuccess')
+  console.log('succeeded in getOneAppointmentSuccess')
   // assign for edit or delete
-  app.appoitment = data.appoitment
-  console.log(app.appoitment)
-  $('#appoitments-div').empty()
-  const name = data.appoitment.name
-  const lastname = data.appoitment.lastname.email
-  const email = data.appoitment.email
-  const providerId = data.appoitment.provider_id
-  console.log('name + lastname + email + provider_id')
-  template.appoitmentsHandlebars(name, lastname, email, providerId)
+  app.Appointment = data.Appointment
+  console.log(app.Appointment)
+  $('#appointments-div').empty()
+  $('#empty-appointments-div').show()
+  for (let i = 0; i < data.appointments.length; i++) {
+    const name = data.appointments.name
+    const lastname = data.appointments.lastname.email
+    const email = data.appointments.email
+    const providerId = data.Appointments.provider_id
+    console.log('name + lastname + email + provider_id')
+    template.AppointmentsHandlebars(name, lastname, email, providerId)
+  }
 }
 
 const getMyAppointmentsFailure = (error) => {
@@ -94,23 +103,23 @@ const getMyAppointmentsFailure = (error) => {
   console.log('Failed in getAllMyAppointmentsFailure')
 }
 
-const getAppoitmentsFailure = (error) => {
+const getAppointmentsFailure = (error) => {
   console.log(error)
-  console.log('Failed in getAllAppoitmentsFailure')
+  console.log('Failed in getAllAppointmentsFailure')
 }
 
 const getAppointmentsSuccess = (data) => {
-  console.log('succeeded in getOneAppoitmentSuccess')
+  console.log('succeeded in getOneAppointmentSuccess')
   // assign for edit or delete
-  app.appoitment = data.appoitment
-  console.log(app.appoitment)
-  $('#appoitments-div').empty()
-  const name = data.appoitment.name
-  const lastname = data.appoitment.lastname
-  const email = data.appoitment.email
-  const providerId = data.appoitment.provider_id
+  app.Appointment = data.Appointment
+  console.log(app.Appointment)
+  $('#Appointments-div').empty()
+  const name = data.Appointment.name
+  const lastname = data.Appointment.lastname
+  const email = data.Appointment.email
+  const providerId = data.Appointment.provider_id
   console.log('name + lastname + email + provider_id')
-  template.appoitmentsHandlebars(name, lastname, email, providerId)
+  template.AppointmentsHandlebars(name, lastname, email, providerId)
 }
 
 const updateAppointmentFailure = (error) => {
@@ -153,8 +162,14 @@ const deleteProviderFailure = (error) => {
 const updateProviderSuccess = (data) => {
   console.log(data)
   console.log('Succeded in updateProviderSuccess')
-  $('#provider-div').empty()
-  template.providersHandlebars(given_name, family_name, email, specialty)
+  $('#providers-div').empty()
+  for (let i = 0; i < data.provider.length; i++) {
+    const name = data.provider[i].given_name
+    const lastname = data.provider[i].family_name
+    const email = data.provider.email
+    const specialty = data.provider.specialty
+    template.providersHandlebars(name, lastname, email, specialty)
+  }
 }
 
 const updateProviderFailure = (error) => {
@@ -168,11 +183,11 @@ const getProviderSuccess = (data) => {
   $('#providers-div').empty()
   $('#empty-appointments-div').show()
   for (let i = 0; i < data.providers.length; i++) {
-    const givenName = data.providers[i].given_name
-    const familyName = data.providers[i].family_name
+    const name = data.providers[i].given_name
+    const lastname = data.providers[i].family_name
     const email = data.providers[i].email
     const specialty = data.providers[i].specialty
-    template.providersHandlebars(givenName, familyName, email, specialty)
+    template.providersHandlebars(name, lastname, email, specialty)
   }
 }
 const getProviderFailure = (error) => {
@@ -187,11 +202,11 @@ const getAllProviderSuccess = (data) => {
   $('#providers-div').empty()
   $('#empty-appointments-div').show()
   for (let i = 0; i < data.providers.length; i++) {
-    const givenName = data.providers[i].given_name
-    const familyName = data.providers[i].family_name
+    const name = data.providers[i].given_name
+    const lastname = data.providers[i].family_name
     const email = data.providers[i].email
     const specialty = data.providers[i].specialty
-    template.providersHandlebars(givenName, familyName, email, specialty)
+    template.providersHandlebars(name, lastname, email, specialty)
   }
 }
 
@@ -231,11 +246,17 @@ const createEventFailure = (error) => {
   console.log('Failed in delete event Failure')
 }
 
-const updateEventSuccess = (data) => {
+const updateEventsSuccess = (data) => {
   console.log(data)
   console.log('Succeded in updateEventSuccess')
   $('#event-div').empty()
-  template.eventsHandlebars(name, start_date, end_date, info)
+  for (let i = 0; i < data.events.length; i++) {
+    const name = data.events[i].name
+    const startDate = data.events[i].start_ate
+    const endDate = data.events[i].end_date
+    const info = data.events[i].info
+    template.eventsHandlebars(name, startDate, endDate, info)
+  }
 }
 
 const updateEventFailure = (error) => {
@@ -267,10 +288,10 @@ module.exports = {
   getMyAppointmentsFailure,
   getMyAppointmentsSuccess,
   getAllProviderSuccess,
-  getAppoitmentsFailure,
+  getAppointmentsFailure,
   getAllProviderFailure,
-  // getAllAppoitmentFailure,
-  // getAllAppoitmentsSuccess,
+  // getAllAppointmentFailure,
+  // getAllAppointmentsSuccess,
   // getEventsFailure,
   getHistorySuccess,
   getHistoryFailure,
@@ -291,5 +312,5 @@ module.exports = {
   updateAppointmentSuccess,
   updateProviderSuccess,
   updateProviderFailure,
-  updateEventSuccess
+  updateEventsSuccess
 }

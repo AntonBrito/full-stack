@@ -9,22 +9,16 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const signUp = function (data) {
   console.log(data)
   return $.ajax({
-    url: app.host + '/sign-up/',
+    url: config.apiOrigin + '/sign-up/',
     method: 'POST',
-    data: { // this are the datas
-      'credentials': {
-        'email': data.credentials.email,
-        'password': data.credentials.password,
-        'password_comfirmation': data.credentials.password
-      }
-    }
+    data
   })
 }
 
 const signIn = function (data) {
   console.log(data)
   return $.ajax({
-    url: app.host + '/sign-in/',
+    url: config.apiOrigin + '/sign-in/',
     method: 'POST',
     data: {
       'credentials': {
@@ -37,8 +31,8 @@ const signIn = function (data) {
 
 const signOut = function () {
   return $.ajax({
+    url: config.apiOrigin + '/sign-out/' + app.user.id,
     method: 'DELETE',
-    url: app.host + '/sign-out/' + app.user.id,
     headers: {
       Authorization: 'Token token=' + app.user.token
     }
@@ -49,11 +43,11 @@ const changePassword = function (data) {
   console.log(data.credentials.old)
   console.log(data.credentials.new)
   return $.ajax({
-    method: 'PATCH',
-    url: app.host + '/change-password/' + app.user.id,
+    url: config.apiOrigin + '/change-password/' + app.user.id,
     headers: {
       Authorization: 'Token token=' + app.user.token
     },
+    method: 'PATCH',
     data: {
       'passwords': {
         'old': data.credentials.old,
@@ -83,7 +77,7 @@ const createAppointment = (data) => {
 }
 const updateAppointment = (data, datId) => {
   return $.ajax({
-    url: app.host + '/Appointment/' + app.Appointment.id,
+    url: config.apiOrigin + '/appointments/' + app.Appointment.id,
     method: 'PATCH',
     data: {
       'Appointment': {

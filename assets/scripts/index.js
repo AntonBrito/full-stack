@@ -17,12 +17,12 @@ $(() => {
   $('#get-every-providers').on('click', events.onGetAllproviders)
   $('#get-my-providers').on('click', events.onGetMyproviders)
   $('#provider_name').on('submit', events.onCreateprovider)
-  $('#appoitment_form').on('submit', events.onCreateappoitment)
+  $('#appointment_form').on('submit', events.onCreateAppointment)
   // $('#random').on('click',
-  //   events.onGetAllMyappoitments)
-  $('#get-every-appoitments').on('click', events.onGetAllMyappoitments)
+  //   events.onGetAllMyAppointments)
+  $('#get-every-appointments').on('click', events.onGetAllMyAppointments)
   $('#update_provider_form').on('submit', events.onUpdateprovider)
-  $('#update_appoitment_form').on('submit', events.onUpdateappoitment)
+  $('#update_appointment_form').on('submit', events.onUpdateAppointment)
   $('#allproviders').on('click', function () {
     $('#providers_page').hide()
   })
@@ -31,50 +31,50 @@ $(() => {
     $('#message').empty()
   })
 
-  $('#providers_page, #appoitments_page, #create_provider, #create_appoitment, #update_provider, #update-appoitments-subject').hide()
+  $('#providers_page, #appointments_page, #create_provider, #create_appointment, #update_provider, #update-appointments-subject').hide()
 
   // providers view
   $('#get-every-providers').on('click', function () {
     $('#providers_page').show()
     $('#message').empty()
-    $('#appoitments_page, #create_provider, #create_appoitment, #update_provider, #update-appoitments-subject').hide()
+    $('#appointments_page, #create_provider, #create_appointment, #update_provider, #update-appointments').hide()
   })
   $('#get-my-providers').on('click', function () {
     $('#providers_page').show()
     $('#message').empty()
-    $('#appoitments_page, #create_provider, #create_appoitment, #update_provider, #update-appoitments-subject').hide()
+    $('#appointments_page, #create_provider, #create_appointment, #update_provider, #update-appointments').hide()
   })
-  // appoitments view
-  $('#get-every-appoitments').on('click', function () {
-    $('#appoitments_page').show()
+  // Appointments view
+  $('#get-every-appointments').on('click', function () {
+    $('#appointments_page').show()
     $('#message').empty()
-    $('#providers_page, #create_provider, #create_appoitment, #update_providers, #update-appoitments-subject').hide()
+    $('#providers_page, #create_provider, #create_appointment, #update_providers, #update-appointments').hide()
   })
   // create providers view
   $('#show-provider-create').on('click', function () {
     $('#create_provider').show()
     $('#message').empty()
-    $('#providers_page, #appoitments_page, #create_appoitment, #update_provider, #update-appoitments-subject').hide()
+    $('#providers_page, #appointments_page, #create_appointment, #update_provider, #update-appointments').hide()
   })
 
-  // create appoitments view
-  $('#show-appoitment-create').on('click', function () {
-    $('#create_appoitment').show()
+  // create Appointments view
+  $('#show-appointment-create').on('click', function () {
+    $('#create_appointment').show()
     $('#message').empty()
-    $('#appoitments_page, #appoitments_page, #create_provider, #update_provider, #update_provider').hide()
+    $('#appointments_page, #appointments_page, #create_provider, #update_provider, #update_provider').hide()
   })
 })
 
-$(document).on('click', '.providerEditButton', events.onUpdateprovidersaveId)
-$(document).on('click', '.appoitmentEditButton', events.onUpdateappoitmentsaveId)
-$(document).on('click', '.show-appoitment-create', events.onGetAllappoitments)
-$(document).on('click', '.appoitmentsDeleteButton', events.onDeleteappoitment)
-$(document).on('click', '.providerDeleteButton', events.onDeleteprovider)
-$(document).on('click', '.appoitmentEditButton', function () {
-  $('#update_appoitments-subject').show()
+$(document).on('click', '.providerEditButton', events.onUpdateproviderSaveId)
+$(document).on('click', '.appointmentEditButton', events.onUpdateAppointmentSaveId)
+$(document).on('click', '.show-Appointment-create', events.onGetAllAppointments)
+$(document).on('click', '.appointmentsDeleteButton', events.onDeleteAppointment)
+$(document).on('click', '.providerDeleteButton', events.onDeleteProvider)
+$(document).on('click', '.appointmentEditButton', function () {
+  $('#update_appointments').show()
 })
 $(document).on('click', '.providerEditButton', function () {
   $('#update_provider').show()
 })
 
-$('.providersEditButton, .providersDeleteButton').hide()
+$('.providerEditButton', '.providersDeleteButton').hide()
