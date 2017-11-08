@@ -90,6 +90,14 @@ const onUpdateAppointmentSaveId = function (event) {
   })
 }
 
+const onDeleteAppointment = function (event) {
+  const data = this.getAttribute('data')
+  event.preventDefault()
+  api.deleteAppointment(data)
+    .then(ui.deleteAppointmentSuccess)
+    .catch(ui.deleteAppointmentFailure)
+}
+
 const onGetHistory = function (event) {
   event.preventDefault()
   api.getHistory()
@@ -187,6 +195,7 @@ module.exports = {
   onGetAllAppointments,
   onUpdateAppointment,
   onUpdateAppointmentSaveId,
+  onDeleteAppointment,
   onGetHistory,
   onCreateProvider,
   onGetProvider,

@@ -12,27 +12,23 @@ const providersHandlebars = function (giveName, familyName, email, specialty) {
 
 // template context for appointments
 
-const appointmentsHandlebars = function (name, lastname, email, date, providerId) {
+const appointmentsHandlebars = function (name, lastname, email, date) {
   const appointmentHandlebarsTemplate = require('./appointments-template.handlebars')
   const context = {
     'name': name,
     'lastname': lastname,
     'email': email,
-    'date': date,
-    'provider_id': providerId
+    'date': date
+    // 'provider_id': providerId
   }
   const templateFilled = appointmentHandlebarsTemplate(context)
   $('#empty-appointments-div').append(templateFilled)
 }
 
-const dropdownHandlebars = function (name, email, lastname, date, providerId, dataId) {
+const dropdownHandlebars = function (name, dataId) {
   const appointmentHandlebarsTemplate = require('./appointments-dropdown-list.handlebars')
   const context = {
-    'name': name,
-    'lastname': lastname,
-    'email': email,
-    'date': date,
-    'provider_id': providerId
+    'name': name
   }
   const templateFilled = appointmentHandlebarsTemplate(context)
   $('#listOfappointments').append(templateFilled)

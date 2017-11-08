@@ -65,16 +65,16 @@ $(() => {
   })
 })
 
-$(document).on('click', '.providerEditButton', events.onUpdateproviderSaveId)
+$(document).on('click', '.providerEditButton', events.onUpdateProviderSaveId)
 $(document).on('click', '.appointmentEditButton', events.onUpdateAppointmentSaveId)
-$(document).on('click', '.show-Appointment-create', events.onGetAllAppointments)
-$(document).on('click', '.appointmentsDeleteButton', events.onDeleteAppointment)
-$(document).on('click', '.providerDeleteButton', events.onDeleteProvider)
+$(document).on('click', '.show-appointment-create', events.onGetAllAppointments)
+$(document).on('click', '.appointmentDeleteButton', events.onDeleteAppointment)
+$(document).on('click', '.providersDeleteButton', events.onDeleteProvider)
 $(document).on('click', '.appointmentEditButton', function () {
-  $('#update_appointments').show()
+  $('#update_appointment-name').show()
 })
 $(document).on('click', '.providerEditButton', function () {
   $('#update_provider').show()
 })
 
-$('.providerEditButton', '.providersDeleteButton').hide()
+$('.providerEditButton, .providersDeleteButton').hide()
