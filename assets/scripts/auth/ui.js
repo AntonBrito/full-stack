@@ -8,24 +8,31 @@ const signUpSuccess = (data) => {
   console.log(data)
   console.log('signed up Successfully')
   $('#update_appointment_form').hide()
-  // console.log('I did something in ui.js!')
+  $('.update_appointment').hide()
+  // $('#sign-up-prompt').text('Created user ' + data.user.email + '.Log in to get started!')
+  // $('.sign-up-form')[0].reset()
 }
 
 const signUpFailure = (error) => {
   console.log(error)
   console.log('failed to signUp')
-  $('#update_Appointment_hide').hide()
+  $('#update_appointment_hide').hide()
+  $('.update_appointment').hide()
 }
 
 const signInSuccess = (data) => {
   app.user = data.user
   console.log(app)
   console.log('sign in succes!')
-  $('.schedule').show()
-  $('.newAppointment').show()
-  $('#signfo').hide()
+  $('.create_appointment').show()
+  $('.create_provider').show()
+  $('.user-sign').hide()
   $('#message').html('You are Signed In!')
-  $('#providers_page').hide()
+  $('#providers_page').show()
+  $('.update_appointment').hide()
+  $('.create_event').hide()
+  $('.update_event').hide()
+
   // $('#appointments_page #update_Appointment').hide()
   // if (app.user.provider === true) {
   //   console.log('this is a provider')
@@ -44,6 +51,12 @@ const signOutSuccess = () => {
   $('#newAppointment').addClass('hide')
   $('.Yogaclasses').hide()
   $('.schedule').hide()
+  $('.update_appointment').hide()
+  $('.side-navbar').hide()
+}
+
+const signOutFail = (error) => {
+  console.error(error)
 }
 
 const changePasswordSuccess = (data) => {
@@ -97,6 +110,22 @@ const getMyAppointmentsSuccess = (data) => {
   }
 }
 
+const getAllAppointmentsSuccess = (data) => {
+  console.log('succeeded in getAllAppointmentSuccess')
+  // app.Appointment = data.Appointment
+  console.log('app.Appointment')
+  $('#appointments-div').empty()
+  // $('#empty-appointments-div').show()
+  for (let i = 0; i < data.appointments.length; i++) {
+    const name = data.appointments[i].name
+    const lastname = data.appointments[i].lastname
+    const email = data.appointments[i].email
+    const providerId = data.appointments[i].provider_id
+    console.log('name + lastname + email + provider_id')
+    template.AppointmentsHandlebars(name, lastname, email, providerId)
+  }
+}
+
 const getMyAppointmentsFailure = (error) => {
   console.log(error)
   console.log('Failed in getAllMyAppointmentsFailure')
@@ -133,12 +162,14 @@ const getAppointmentsSuccess = (data) => {
   app.Appointment = data.Appointment
   console.log(app.Appointment)
   $('#Appointments-div').empty()
-  const name = data.appointment.name
-  const lastname = data.appointments.lastname
-  const email = data.appointments.email
-  const providerId = data.appointments.provider_id
-  console.log('name + lastname + email + provider_id')
-  template.AppointmentsHandlebars(name, lastname, email, providerId)
+  for (let i = 0; i < data.appointments.length; i++) {
+    const name = data.appointment[i].name
+    const lastname = data.appointments[i].lastname
+    const email = data.appointments[i].email
+    const providerId = data.appointments[i].provider_id
+    console.log('name + lastname + email + provider_id')
+    template.AppointmentsHandlebars(name, lastname, email, providerId)
+  }
 }
 
 const updateAppointmentFailure = (error) => {
@@ -300,11 +331,13 @@ module.exports = {
   signInSuccess,
   signInFailure,
   signOutSuccess,
+  signOutFail,
   changePasswordSuccess,
   changePasswordFailure,
   createAppointmentSuccess,
   createAppointmentFailure,
   getAppointmentsSuccess,
+  getAllAppointmentsSuccess,
   getMyAppointmentsFailure,
   getMyAppointmentsSuccess,
   getAllProviderSuccess,

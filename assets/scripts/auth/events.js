@@ -4,6 +4,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const app = require('../app.js')
+
 const signUpSuccess = (data) => {
   app.user = data.user
   console.log(data)
@@ -35,11 +36,11 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   console.log('tryin to sign out')
-  const data = getFormFields(this)
+  // const data = getFormFields(this)
   event.preventDefault()
-  api.signOut(data)
-    .then(ui.signOutSuccess)
-    .catch(ui.signOutFailure)
+  api.signOut()
+    .done(ui.signOutSuccess)
+    .fail(ui.fail)
 }
 
 const onChangePassword = function (event) {
@@ -51,23 +52,25 @@ const onChangePassword = function (event) {
 }
 
 const onCreateAppointment = function (event) {
+  const data = getFormFields(this)
   console.log('createAppointment Succefull')
   event.preventDefault()
-  api.createAppointment()
+  api.createAppointment(data)
     .then(ui.createAppointmentSuccess)
     .catch(ui.createAppointmentFailure)
 }
 const onGetAppointments = function (event) {
-  console.log('showAppointments Succefull')
+  console.log('onGetAppointments Succefull')
   event.preventDefault()
-  api.showAppointments()
-    .then(ui.showAppointmentSuccess)
-    .catch(ui.showAppointmentFailure)
+  api.getAppointments()
+    .then(ui.getAppointmentsSuccess)
+    .catch(ui.getAppointmentsFailure)
 }
 
 const onGetAllAppointments = function (event) {
+  console.log('onGetAllAppointments Succefull')
   event.preventDefault()
-  api.getAllproviders()
+  api.getAllAppointments()
     .then(ui.getAllAppointmentsSuccess)
     .catch(ui.getAllAppointmentsFailure)
 }
@@ -76,7 +79,7 @@ const onUpdateAppointment = function (event) {
   const data = getFormFields(this)
   const dataId = this.getAttribute('data-id')
   event.preventDefault()
-  api.updateGame(data, dataId)
+  api.updateAppointment(data, dataId)
     .then(ui.updateAppointmentSuccess)
     .catch(ui.updateAppointmentFailure)
 }

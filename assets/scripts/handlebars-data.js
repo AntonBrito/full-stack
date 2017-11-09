@@ -12,14 +12,14 @@ const providersHandlebars = function (giveName, familyName, email, specialty) {
 
 // template context for appointments
 
-const appointmentsHandlebars = function (name, lastname, email, date) {
+const appointmentsHandlebars = function (name, lastname, email, date, providerId) {
   const appointmentHandlebarsTemplate = require('./appointments-template.handlebars')
   const context = {
     'name': name,
     'lastname': lastname,
     'email': email,
-    'date': date
-    // 'provider_id': providerId
+    'date': date,
+    'provider_id': providerId
   }
   const templateFilled = appointmentHandlebarsTemplate(context)
   $('#empty-appointments-div').append(templateFilled)

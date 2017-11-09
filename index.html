@@ -16,27 +16,14 @@
       <header>
       <h1>OndaSuave</h1>
       <div class="sig">
-      <div class="dropdown botton">
-      <button class="dropbtn">sign Up</button>
-      <div class="dropdown-content">
-        <form id="sign-up">
-          <input type="text" name="credentials[email]" value="" placeholder="email">
-          <input type="password" name="credentials[password]" value="" placeholder="password">
-          <input type="password" name="credentials[password_confirmation]" value="" placeholder="pass confirmation">
-          <input type="submit" name="submit" value="Sign up!" class="submit">
-      </form>
 
-      </div>
+      <div class="dropdown botton">
+      <button id="get_sign_up-form"class="dropbtn sign-up-nav">sign Up</button>
+    </div>
+
     </div>
      <div class="dropdown botton">
-     <button class="dropbtn">Log In</button>
-     <div class="dropdown-content">
-       <form id="sign-in">
-           <input type="text" name="credentials[email]" value="" placeholder="email">
-           <input type="password" name="credentials[password]" value="" placeholder="password">
-           <input type="submit" name="submit" value="Sign in!" class="submit">
-       </form>
-     </div>
+     <button id="sig-in-nav" class="sig-in-nav dropbtn botton">Log In</button>
    </div>
 
    <div class="dropdown">
@@ -60,8 +47,6 @@
 </div>
 </div>
 </div>
-
-     </div>
    </header>
     <div class="navbar">
       <ul>
@@ -75,16 +60,51 @@
       </ul>
     </div>
 
+    <div id="user-sign" class="user-sign">
+
+    <div id="sign-up-form" class="sign-up-form signforms">
+      <legend>Sign Up</legend>
+      <form id="sign-up" class="sign-up">
+        <h4 id="sign-up-prompt">Create an account</h4>
+        <input type="text" name="credentials[email]" value="" placeholder="email">
+        <input type="password" name="credentials[password]" value="" placeholder="password">
+        <input type="password" name="credentials[password_confirmation]" value="" placeholder="pass confirmation">
+        <input type="submit" name="submit" value="Sign up!" class="submit">
+    </form>
+  </div>
+
+  <div id="sign-in-form" class="sign-in-form signforms">
+   <legend>Sign In</legend>
+    <form id="sign-in" class="sign-in">
+        <input type="text" name="credentials[email]" value="" placeholder="email">
+        <input type="password" name="credentials[password]" value="" placeholder="password">
+        <input type="submit" name="submit" value="Sign in!" class="submit">
+    </form>
+  </div>
+</div>
+    <div id="side" class="side">
     <div id="side-navbar" class="side-navbar">
       <ul>
-        <br><br><br>
-        <li><a id="create-Appointment show-Appointment-create"class="create-Appointment show-Appointment-create" href="#makeAppointment">Make Appointment</a></li>
-        <li><a id="my-Appointments" class="my-Appointment" href="#myAppointments">My Appointments</a></li>
-        <li><a id="show-all-Appointments" class="show-all-Appointment" href="#showAppointments">All Appointments</a></li>
+        <br><br>
+        <li><a id="create-appointment show-appointment-create"class="create-appointment show-appointment-create" href="#makeAppointment">Make Appointment</a></li>
+        <li><a id="my-appointments" class="my-appointment" href="#myappointments">My Appointments</a></li>
+        <li><a id="show-all-appointments" class="show-all-appointment" href="#showappointments">All Appointments</a></li>
         <li><a id="get-yogaschedule" class="get-yogaschedule"href="#yogaschecule">Yoga schedule</a></li>
-        <br><br><br><br>
+        <br><br>
       </ul>
     </div>
+    <br>
+
+    <div id="side-navbar-providers" class="side-navbar-providers">
+      <ul>
+        <li><a id="create_provider show-provider-create"class="create-provider show-provider-create" href="#makeprovider">Create Provider</a></li>
+        <li><a id="my-provider" class="my-provider" href="#myproviders">My Providers</a></li>
+        <li><a id="show-all-providers" class="show-all-providers" href="#showproviders">Our Providers</a></li>
+        <br><br>
+      </ul>
+    </div>
+  </div>
+    <br>
 
     <div id="message" class="message">
         </div>
@@ -96,12 +116,12 @@
       allowing mothers and families, <br>from all backgrounds and of all financial means, to access education,<br> care and support.</p>
     </div>
     <br>
-    <button id="makeAppointment" class="makeAppointment" value="create_appointment">Make Appointment Now</button>
+    <!-- <button id="makeAppointment" class="makeAppointment" value="create_appointment">Make Appointment Now</button>
     <br>
     <button id="schedule" class="schedule" value="schedule">Yoga Schedule</button>
     <br><br>
     <button id="delAppointment" class="delAppointment"
-    value="delete-Appointment">Delete Appointment</button>
+    value="delete-Appointment">Delete Appointment</button> -->
 
 <!--
 <div class="Appointment">
@@ -139,6 +159,7 @@
 <div id="create_appointment" class="create_appointment">
   <form id="create_appointment_form" class="create_appointment_form">
     <div class="form-group row">
+      <fieldset>
       <label for="inputname" class="col-sm-2 col-form-label">Name</label>
       <div class="col-sm-10">
         <input id="appointment_name" class="appointment_name form-control" type="name" placeholder="Name">
@@ -170,7 +191,7 @@
     </div>
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
-        <button type="submit" id="submit-create-appointments" class="submit submit-create-appointments btn-default" name="submit">Make Appointment</button>
+        <button type="submit" id="submit submit-create-appointments" class="submit submit-create-appointments btn-default" name="submit">Make Appointment</button>
       </fieldset>
       </div>
     </div>
@@ -219,7 +240,7 @@
   </form>
 </div>
 <br>
-<div id="create_provider" class="create_provider">
+<div id="create_provider" class="create_provider" align="center">
   <form id="create_provider_form" class="create_provider_form">
     <div class="form-group row">
       <label for="inputgivenname" class="col-sm-2 col-form-label">Name</label>
@@ -247,7 +268,7 @@
     </div>
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
-        <button type="submit" id="createProvider">Sign Up a Provider</button>
+        <button type="submit" value="submit" id="submit submit-create-provider" class="submit submit-create-provider btn-default">Sign Up a Provider</button>
       </div>
     </div>
   </form>
@@ -355,8 +376,8 @@
     </div>
   </form>
 </div>
-<button id="showappointment" class="showappointment" value="showappointment">Show appointments</button>
-
+<!-- <button id="showappointment" class="showappointment" value="showappointment">Show appointments</button> -->
+<!--
   <div id="appointment-table" class="appointment-table">
   <table style="width:80%">
     <caption>Appointment</caption>
@@ -367,7 +388,7 @@
     <tr id="Appointment-content-tb">
     </tr>
   </table>
-</div>
+</div> -->
 
 <div class="Yogaclasses yogaclasse">
 <table style="width:100%">
