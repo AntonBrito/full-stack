@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+    </head>
+    <body class="container-fluid">
+      <header>
+      <h1>OndaSuave</h1>
+      <div class="sig">
+
+      <div class="dropdown botton">
+      <button id="get_sign_up-form"class="dropbtn sign-up-nav">sign Up</button>
+    </div>
+
+    </div>
+     <div class="dropdown botton">
+     <button id="sig-in-nav" class="sig-in-nav dropbtn botton">Log In</button>
+   </div>
+
+   <div class="dropdown">
+ <button class="dropbtn">Settings</button>
+ <div class="dropdown-content">
+   <a href="#">Link 1</a>
+   <a href="#">Link 2</a>
+   <a href="#">Delete Appointment</a>
+ <div class="dropdown">
+   <button class="dropbtn">changePassword</button>
+ <div class="dropdown-content">
+   <form id="change-password">
+       <input type="password" name="credentials[old]" value="" placeholder="Old Password">
+       <input type="password" name="credentials[new]" value="" placeholder="New Password">
+       <input type="submit" name="submit" value="Change Password" class="submit">
+   </form>
+   <form id="sign-out">
+       <input type="submit" name="submit" value="Sign out!" class="submit">
+   </form>
+ </div>
+</div>
+</div>
+</div>
+   </header>
+    <div class="navbar">
+      <ul>
+        <li><a href="#home" id="mainpage" class="mainpage"></a>Home</li>
+
+        <li><a href="#getschedule">News</a></li>
+
+        <li><a href="#contact">Contact</a></li>
+
+        <li><a href="#about">About us</a></li>
+      </ul>
+    </div>
+
+    <div id="user-sign" class="user-sign">
+
+    <div id="sign-up-form" class="sign-up-form signforms">
+      <legend>Sign Up</legend>
+      <form id="sign-up" class="sign-up">
+        <h4 id="sign-up-prompt">Create an account</h4>
+        <input type="text" name="credentials[email]" value="" placeholder="email">
+        <input type="password" name="credentials[password]" value="" placeholder="password">
+        <input type="password" name="credentials[password_confirmation]" value="" placeholder="pass confirmation">
+        <input type="submit" name="submit" value="Sign up!" class="submit">
+    </form>
+  </div>
+
+  <div id="sign-in-form" class="sign-in-form signforms">
+   <legend>Sign In</legend>
+    <form id="sign-in" class="sign-in">
+        <input type="text" name="credentials[email]" value="" placeholder="email">
+        <input type="password" name="credentials[password]" value="" placeholder="password">
+        <input type="submit" name="submit" value="Sign in!" class="submit">
+    </form>
+  </div>
+</div>
+    <div id="side" class="side">
+    <div id="side-navbar" class="side-navbar">
+      <ul>
+        <br><br>
+        <li><a id="create-appointment show-appointment-create"class="create-appointment show-appointment-create" href="#makeAppointment">Make Appointment</a></li>
+        <li><a id="my-appointments" class="my-appointment" href="#myappointments">My Appointments</a></li>
+        <li><a id="show-all-appointments" class="show-all-appointment" href="#showappointments">All Appointments</a></li>
+        <li><a id="get-yogaschedule" class="get-yogaschedule"href="#yogaschecule">Yoga schedule</a></li>
+        <br><br>
+      </ul>
+    </div>
+    <br>
+
+    <div id="side-navbar-providers" class="side-navbar-providers">
+      <ul>
+        <li><a id="create_provider show-provider-create"class="create-provider show-provider-create" href="#makeprovider">Create Provider</a></li>
+        <li><a id="my-provider" class="my-provider" href="#myproviders">My Providers</a></li>
+        <li><a id="show-all-providers" class="show-all-providers" href="#showproviders">Our Providers</a></li>
+        <br><br>
+      </ul>
+    </div>
+  </div>
+    <br>
+
+    <div id="message" class="message">
+        </div>
+
+    <div id="introduction" class="introduction">
+    <h2>OndaSuave</h2>
+    <p id="onda" class="onda"> is a wellness center dedicated to growing families. We offer <strong>Yoga</strong> classes & <strong>Massage therapy</strong>.<br> Soon we will be adding addicional education
+       and wellness services.<br> Our commitment is to ALL families. <br> Our program costs are income based,
+      allowing mothers and families, <br>from all backgrounds and of all financial means, to access education,<br> care and support.</p>
+    </div>
+    <br>
+    <!-- <button id="makeAppointment" class="makeAppointment" value="create_appointment">Make Appointment Now</button>
+    <br>
+    <button id="schedule" class="schedule" value="schedule">Yoga Schedule</button>
+    <br><br>
+    <button id="delAppointment" class="delAppointment"
+    value="delete-Appointment">Delete Appointment</button> -->
+
+<!--
+<div class="Appointment">
+    <table class="appoitmassage" style="width:100%">
+      <thead>
+        <tr>
+          <th>Appointments ID</th>
+          <th>Date-time</th>
+        </tr>
+      </thead>
+    </table>
+    <form id="create_Appointment" class="createAppointment">
+      <legend>Schedule your appointment today!</legend>
+      <input type="email" name="Appointments[date]" value="" placeholder="date" id="appointment-date">
+      <input type="datetime" name="time" value="Make Appointment!" class="submit" id="Appointment-create">
+    </form>
+</div> -->
+
+<div id="appointments_page" class="appointments_page">
+  <div id="empty-appointments-div" class="empty-appointments-div">
+</div>
+</div>
+<br>
+<div id="providers_page" class="providers_page">
+  <div id="providers-div" class="providers-div">
+  </div>
+</div>
+<br>
+<div id="events_page" class="events_page">
+  <div id="events-div" class="events-div">
+  </div>
+</div>
+<br>
+
+<div id="create_appointment" class="create_appointment">
+  <form id="create_appointment_form" class="create_appointment_form">
+    <div class="form-group row">
+      <fieldset>
+      <label for="inputname" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input id="appointment_name" class="appointment_name form-control" type="name" placeholder="Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputLastname" class="col-sm-2 col-form-label">Lastname</label>
+      <div class="col-sm-10">
+        <input id="appointment_lastname" class="appointment_lastname form-control" type="lastname" placeholder="Lastname">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input id="appointment_email" class="appointment_email form-control" type="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control appointment_date" id="appointment_date" placeholder="Date">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputProvidersId" class="col-sm-2 col-form-label">ProvidersId</label>
+      <div class="col-sm-10">
+        <input id="appointment_providerId" class="appointment_providerId form-control" type="providerId" placeholder="ProviderId">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" id="submit submit-create-appointments" class="submit submit-create-appointments btn-default" name="submit">Make Appointment</button>
+      </fieldset>
+      </div>
+    </div>
+  </form>
+</div>
+
+<br><br>
+
+<div id="update_appointment" class="update_appointment">
+  <form id="update_appointment_form" class="update_appointment_form">
+    <div class="form-group row">
+      <label for="inputname" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input id="appointment_name" class="appointment_name form-control" type="name" placeholder="Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputLastname" class="col-sm-2 col-form-label">Lastname</label>
+      <div class="col-sm-10">
+        <input id="appointment_lastname" class="appointment_lastname form-control" type="lastname" placeholder="Lastname">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input id="appointment_email" class="appointment_email form-control" type="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control appointment_date" id="appointment_date" placeholder="Date">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputProvidersId" class="col-sm-2 col-form-label">ProvidersId</label>
+      <div class="col-sm-10">
+        <input id="appointment_providerId" class="appointment_providerId form-control" type="providerId" placeholder="ProviderId">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" id="createAppointment">Reschedule Appointment</button>
+      </div>
+    </div>
+  </form>
+</div>
+<br>
+<div id="create_provider" class="create_provider" align="center">
+  <form id="create_provider_form" class="create_provider_form">
+    <div class="form-group row">
+      <label for="inputgivenname" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input id="provider_given_name" class="provider_given_nam form-control" type="name" placeholder="Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputFamilyname" class="col-sm-2 col-form-label">Lastname</label>
+      <div class="col-sm-10">
+        <input id="provider_family_name" class="provider_family_name form-control" type="lastname" placeholder="Lastname">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input id="provider_email" class="provider_email form-control" type="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputSpecialty" class="col-sm-2 col-form-label">Specialty</label>
+      <div class="col-sm-10">
+        <input id="provider_specialty" class="provider_specialty form-control" type="providerSpecialty" placeholder="ProviderSpecialty">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" value="submit" id="submit submit-create-provider" class="submit submit-create-provider btn-default">Sign Up a Provider</button>
+      </div>
+    </div>
+  </form>
+</div>
+<br>
+<div id="update_provider" class="update_provider">
+  <form id="update_provider_form" class="update_provider_form">
+    <div class="form-group row">
+      <label for="inputgivenname" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input id="provider_given_name" class="provider_given_nam form-control" type="name" placeholder="Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputFamilyname" class="col-sm-2 col-form-label">Lastname</label>
+      <div class="col-sm-10">
+        <input id="provider_family_name" class="provider_family_name form-control" type="lastname" placeholder="Lastname">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input id="provider_email" class="provider_email form-control" type="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputSpecialty" class="col-sm-2 col-form-label">Specialty</label>
+      <div class="col-sm-10">
+        <input id="provider_specialty" class="provider_specialty form-control" type="providerSpecialty" placeholder="ProviderSpecialty">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" id="updateProvider">Update a Provider</button>
+      </div>
+    </div>
+  </form>
+</div>
+<br>
+<div id="create_event" class="create_event">
+  <form id="create_event_form" class="create_event_form">
+    <div class="form-group row">
+      <label for="inputname" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input id="event_name" class="event_name form-control" type="name" placeholder="Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputInfo" class="col-sm-2 col-form-label">Info</label>
+      <div class="col-sm-10">
+        <input id="event_info" class="event_info form-control" type="text" placeholder="Info">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputDate" class="col-sm-2 col-form-label">Starting</label>
+      <div class="col-sm-10">
+        <input id="event_start_date" class="event_start_date form-control" type="date" placeholder="date">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputDAte" class="col-sm-2 col-form-label">Ending</label>
+      <div class="col-sm-10">
+        <input id="event_end_date" class="event_end_date form-control" type="text" placeholder="event_end_date">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" id="createEvent">Create Event</button>
+      </div>
+    </div>
+  </form>
+</div>
+<br>
+
+<div id="update_event" class="update_event">
+  <form id="update_event_form" class="update_event_form">
+    <div class="form-group row">
+      <label for="inputname" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input id="event_name" class="event_name form-control" type="name" placeholder="Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputInfo" class="col-sm-2 col-form-label">Info</label>
+      <div class="col-sm-10">
+        <input id="event_info" class="event_info form-control" type="text" placeholder="Info">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputDate" class="col-sm-2 col-form-label">Starting</label>
+      <div class="col-sm-10">
+        <input id="event_start_date" class="event_start_date form-control" type="date" placeholder="date">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputDAte" class="col-sm-2 col-form-label">Ending</label>
+      <div class="col-sm-10">
+        <input id="event_end_date" class="event_end_date form-control" type="text" placeholder="event_end_date">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" id="updateEvent">Update Event</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- <button id="showappointment" class="showappointment" value="showappointment">Show appointments</button> -->
+<!--
+  <div id="appointment-table" class="appointment-table">
+  <table style="width:80%">
+    <caption>Appointment</caption>
+    <tr>
+      <th>Email</th>
+      <th>Date-Time</th>
+    </tr>
+    <tr id="Appointment-content-tb">
+    </tr>
+  </table>
+</div> -->
+
+<div class="Yogaclasses yogaclasse">
+<table style="width:100%">
+  <caption>Yoga classes</caption>
+  <tr>
+    <th>Date-time</th>
+    <th>Class</th>
+    <th>Instructor</th>
+  </tr>
+  <tr>
+    <td>Mon, Sep 4, 2017 - 10:00Am</td>
+    <td>Yoga</td>
+    <td>Kaely</td>
+  </tr>
+  <tr>
+    <td>Tue, Sep 5, 2017 - 10:00Am</td>
+    <td>Yoga</td>
+    <td>Kaely</td>
+  </tr>
+  <tr>
+    <td>Wed, Sep 6, 2017 - 9:00Am</td>
+    <td>Yoga</td>
+    <td>Jesse</td>
+  </tr>
+  <tr>
+    <td>Thu, Sep 7, 2017 - 10:00Am</td>
+    <td>Yoga</td>
+    <td>Kaely</td>
+  </tr>
+  <tr>
+    <td>Fri, Sep 8, 2017 - 9:00Am</td>
+    <td>Yoga</td>
+    <td>Jesse</td>
+  </tr>
+</table>
+</div>
+
+<div class="aboutclass">
+    <h3>​Upcoming Classes & Events</h3>
+    <br>
+<p>Community Acupuncture & Massage -  Come join us for a low cost/no cost monthly gathering with <br>local therapists and sound healers.<br>
+  This cozy atmosphere will help sooth your senses and nourish your soul.  Starting Spring 2017.</p>
+
+<p>Date Night Massage Series #1-  Do you love massage and wish you could give and receive it more<br>
+  often with the ones you love?  Onda Suave is offering a 3 week class series just for you!<br>
+  Participants will learn a variety of massage techniques and theory to fortify and nurture each<br>
+  other through the challenges and stress of our day to day lives.</p>
+
+​<p>Partner Massage & Acupressure for Birth - This workshop will provide expecting parents with tools<br>
+for coping in labor through the use of partner supported movement and touch.</p>
+<p> Learn which acupressure points can be helpful for calming nerves, relieving pain,<br>
+  and encouraging the baby to come down. Come learn the power of nurturing touch.</p>
+</div>
+  <br>
+  <br>
+<footer>
+  <h6>CopyRight@2017 Design by Antonio Brito</h6>
+</footer>
+
+    </body>
+</html>
